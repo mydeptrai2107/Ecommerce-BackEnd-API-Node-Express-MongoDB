@@ -1,0 +1,973 @@
+{
+	"info": {
+		"_postman_id": "a4b922f9-b820-4eca-be82-ab1b03290f5e",
+		"name": "Ecommerce-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29800750"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fName\":\"Haytham@Haytham\",\r\n    \"lName\":\"Ali\",\r\n    \"email\":\"Haytham1234@gmail.com\",\r\n    \"password\":\"Haytham@1211\",\r\n    \"gender\":\"male\",\r\n    \"phone\":\"01284596452\",\r\n    \"age\":\"1993/01/01\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Local_Url}}/user/register",
+									"host": [
+										"{{Local_Url}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UserLogin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"Haytham1234@gmail.com\",\r\n    \"password\":\"Haytham@1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Local_Url}}/user/login",
+									"host": [
+										"{{Local_Url}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TokenAuth/userProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWE5MDU4ZWMzOTQzNDlmYjBlNTIzMDYiLCJpYXQiOjE3MDU1NzU4OTcsImV4cCI6MTcwNTgzNTA5N30.0HV2ix9uOtbI9G26djHIaGi4DeSX1cGBKQziFLGJe8M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDUxNjQ4NDF9.5zKErc6qJH5qtXvLLvVXoYlytLlSTksBxAXSwGqVluQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Local_Url}}/user//userProfile",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"user",
+								"",
+								"userProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TokenAuth/EditProfile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDUxNjc4Nzl9.IrY89Y--EzmPHDaVLVg58iOwEGR_LJ2PK0IQ2EPQtBU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fName\":\"Haytham Haytham\",\r\n    \"lName\":\"Ali Ali\",\r\n    \"phone\":\"01284596452\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/user/editProfile",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"user",
+								"editProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TokenAuth/logout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDUyNDE5MzAsImV4cCI6MTcwNTUwMTEzMH0.4qZJysTkvKJ6C7_kHQcBnc0xap1eEcsU9gmXQYx3Dtg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Local_Url}}/user/logout",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWE5MTZiYzhmMjJjYmRkMzhjZDI1ZTUiLCJpYXQiOjE3MDU1ODAyNzEsImV4cCI6MTcwNTgzOTQ3MX0.rIdUrBJPOxcRtAG3S4xj_NVzuSYzs5PbYe6T4C7UEtU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\":\"Haytham@1234\",\r\n    \"newPassword\":\"Haytham@1234\",\r\n    \"confirmPassword\":\"Haytham@1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/user/changePassword",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"user",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWE5MDU4ZWMzOTQzNDlmYjBlNTIzMDYiLCJpYXQiOjE3MDU1NzU4OTcsImV4cCI6MTcwNTgzNTA5N30.0HV2ix9uOtbI9G26djHIaGi4DeSX1cGBKQziFLGJe8M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/user/deleteUser",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"user",
+								"deleteUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "AdminLogin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"HaythamAli@gmail.com\",\r\n    \"password\":\"Haytham@1211\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Local_Url}}/admin/adminLogin",
+									"host": [
+										"{{Local_Url}}"
+									],
+									"path": [
+										"admin",
+										"adminLogin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "TokenAuth/AddNewAdmin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDUyNDExMDUsImV4cCI6MTcwNTUwMDMwNX0.FDRG2z4WE8IxlNTcyOJqV_tO-57EEZCm75CSqEWKpUI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fName\":\"Haytham\",\r\n    \"lName\":\"Abdo\",\r\n    \"email\":\"HaythamAdbo@gmail.com\",\r\n    \"password\":\"Haytham@1211\",\r\n    \"gender\":\"male\",\r\n    \"phone\":\"01284596452\",\r\n    \"age\":\"1993/01/01\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Local_Url}}/admin/addNewAdmin",
+									"host": [
+										"{{Local_Url}}"
+									],
+									"path": [
+										"admin",
+										"addNewAdmin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "AllProducts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDUyNDExMDUsImV4cCI6MTcwNTUwMDMwNX0.FDRG2z4WE8IxlNTcyOJqV_tO-57EEZCm75CSqEWKpUI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Local_Url}}/product/allProducts",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"product",
+								"allProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddNewProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDUyNDExMDUsImV4cCI6MTcwNTUwMDMwNX0.FDRG2z4WE8IxlNTcyOJqV_tO-57EEZCm75CSqEWKpUI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"perfume Oil\",\r\n\"description\": \"Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil\",\r\n\"price\": 13,\r\n\"discountPercentage\": 8.4,\r\n\"rating\": 4.26,\r\n\"stock\": 65,\r\n\"brand\": \"Impression of Acqua Di Gio\",\r\n\"category\": \"fragrances\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/product/addProduct",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"product",
+								"addProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowSingleProduct",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDU0OTY1NzMsImV4cCI6MTcwNTc1NTc3M30.2hnt_L0I_uCqW3ekVesFD-QBQf5d88ZjECkIL6BxXY0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Local_Url}}/product/getProductById/65a52493cf93dd21cbe22b6e",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"product",
+								"getProductById",
+								"65a52493cf93dd21cbe22b6e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpDate Product",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDUyNDExMDUsImV4cCI6MTcwNTUwMDMwNX0.FDRG2z4WE8IxlNTcyOJqV_tO-57EEZCm75CSqEWKpUI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"MacBook Proo\",\r\n\"description\": \"MacBook Pro 2021 with mini-LED display may launch between September, November\",\r\n\"price\": 1749,\r\n\"discountPercentage\": 11.02,\r\n\"rating\": 4.57,\r\n\"stock\": 83,\r\n\"brand\": \"Apple\",\r\n\"category\": \"laptopS\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/product/upDateProduct/65a5379ddcc828a78ea877f9",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"product",
+								"upDateProduct",
+								"65a5379ddcc828a78ea877f9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDUyNDExMDUsImV4cCI6MTcwNTUwMDMwNX0.FDRG2z4WE8IxlNTcyOJqV_tO-57EEZCm75CSqEWKpUI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/product/deleteProduct/65a53b3888737e1cfe79d83f",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"product",
+								"deleteProduct",
+								"65a53b3888737e1cfe79d83f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowProductByCategoryName",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDUyNDExMDUsImV4cCI6MTcwNTUwMDMwNX0.FDRG2z4WE8IxlNTcyOJqV_tO-57EEZCm75CSqEWKpUI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Local_Url}}/product/getProductByCategoryName/fragrances",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"product",
+								"getProductByCategoryName",
+								"fragrances"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "AddNewCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDUyNDExMDUsImV4cCI6MTcwNTUwMDMwNX0.FDRG2z4WE8IxlNTcyOJqV_tO-57EEZCm75CSqEWKpUI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"FraGrancess\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/category/addNewCategory",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"category",
+								"addNewCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowAllCategory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDUyNDExMDUsImV4cCI6MTcwNTUwMDMwNX0.FDRG2z4WE8IxlNTcyOJqV_tO-57EEZCm75CSqEWKpUI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Local_Url}}/category/allCategory",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"category",
+								"allCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowSinglelCategory",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDUyNDExMDUsImV4cCI6MTcwNTUwMDMwNX0.FDRG2z4WE8IxlNTcyOJqV_tO-57EEZCm75CSqEWKpUI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Local_Url}}/category/showSingleCategory/65a51b761ee7587eb02f0152",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"category",
+								"showSingleCategory",
+								"65a51b761ee7587eb02f0152"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategory Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDUyNDExMDUsImV4cCI6MTcwNTUwMDMwNX0.FDRG2z4WE8IxlNTcyOJqV_tO-57EEZCm75CSqEWKpUI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Local_Url}}/category/deleteCategory/65a51b761ee7587eb02f0152",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"category",
+								"deleteCategory",
+								"65a51b761ee7587eb02f0152"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Card",
+			"item": [
+				{
+					"name": "AddToCard",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDU0NzY1NzAsImV4cCI6MTcwNTczNTc3MH0.Z2Xcr2AMoDV1MY4qE8y0MB0tk8BmabIhOchtE6xOr1c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"iPhone X\",\r\n\"description\": \"SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...\",\r\n\"price\": 899,\r\n\"discountPercentage\": 17.94,\r\n\"rating\": 4.44,\r\n\"brand\": \"Apple\",\r\n\"category\": \"smartphones\",\r\n    \"quantity\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/card/addToCard",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"card",
+								"addToCard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCard",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTEwMTBiNmQ0ZjlmYWI3MGFlMTkiLCJpYXQiOjE3MDU0NzI4MjYsImV4cCI6MTcwNTczMjAyNn0.8vFaOzK559QOMN2LNdf2n_TlJSYOVqw5QzEWtZDPY1Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/card/deleteCard/65a7754daadd16dd5af08297",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"card",
+								"deleteCard",
+								"65a7754daadd16dd5af08297"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserCard",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDU0NzUzOTgsImV4cCI6MTcwNTczNDU5OH0.aoSDSDfk_3WitlXKSMEKG0iU3t_zv_Zv5AzxohcAGFs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/card/getUserCard",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"card",
+								"getUserCard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAllUserCard",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDU0NzY1NzAsImV4cCI6MTcwNTczNTc3MH0.Z2Xcr2AMoDV1MY4qE8y0MB0tk8BmabIhOchtE6xOr1c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/card/deleteAllUserCard",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"card",
+								"deleteAllUserCard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpDataCard",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDU0NzY1NzAsImV4cCI6MTcwNTczNTc3MH0.Z2Xcr2AMoDV1MY4qE8y0MB0tk8BmabIhOchtE6xOr1c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\":\"19\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local_Url}}/card/updateCard/65a788e5ccdff8bd807a31e8",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"card",
+								"updateCard",
+								"65a788e5ccdff8bd807a31e8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllCards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDU0OTI1MDIsImV4cCI6MTcwNTc1MTcwMn0.aTNly7x8mYPCmxdItaY2dUorEMvPH3eKPFETZ-T5Pu0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Local_Url}}/card/allCards",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"card",
+								"allCards"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "AddOrder",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDU0OTY1NzMsImV4cCI6MTcwNTc1NTc3M30.2hnt_L0I_uCqW3ekVesFD-QBQf5d88ZjECkIL6BxXY0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Local_Url}}/order/addOrder",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"order",
+								"addOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserOrders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDU0OTY1NzMsImV4cCI6MTcwNTc1NTc3M30.2hnt_L0I_uCqW3ekVesFD-QBQf5d88ZjECkIL6BxXY0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local_Url}}/order/getUserOrders",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"order",
+								"getUserOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUserOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDU0OTY1NzMsImV4cCI6MTcwNTc1NTc3M30.2hnt_L0I_uCqW3ekVesFD-QBQf5d88ZjECkIL6BxXY0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Local_Url}}/order/deleteOrder/65a8fbffd845cb3dfdcd2338",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"order",
+								"deleteOrder",
+								"65a8fbffd845cb3dfdcd2338"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserDeletedOrders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEyOTE4ZmYzZTExZWJiNDk0OTIxYTQiLCJpYXQiOjE3MDU0OTY1NzMsImV4cCI6MTcwNTc1NTc3M30.2hnt_L0I_uCqW3ekVesFD-QBQf5d88ZjECkIL6BxXY0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local_Url}}/order/deletedOrders",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"order",
+								"deletedOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllUsersDeletedOrders(Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWEzZTQyNDRlMzU0N2VkMzU5NDk3NWYiLCJpYXQiOjE3MDU1NzQ4NjEsImV4cCI6MTcwNTgzNDA2MX0.z6Lubpt2UHZocqoAe3HUF6NK7C1OR2vvhb3G_QEHjZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local_Url}}/order/allDeletedOrders",
+							"host": [
+								"{{Local_Url}}"
+							],
+							"path": [
+								"order",
+								"allDeletedOrders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Local_Url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
